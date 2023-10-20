@@ -19,7 +19,9 @@ The purpose of this functionality is to provide a convenient way for users to do
 ### Downloading CSV
 
 To download users data in CSV format, make a GET request to the `/user/users-csv` endpoint. The CSV file will be automatically downloaded.
+## Using StreamingResponseBody
 
+**StreamingResponseBody** is employed to efficiently stream large amounts of data, such as CSV content, directly to the HTTP response without buffering the entire content in memory. This is essential for handling potentially large datasets, ensuring optimal memory usage and responsiveness.
 Example:
 ```bash
 curl -OJ http://localhost:8080/user/users-csv
@@ -30,9 +32,7 @@ The CSV download functionality is configured in the Spring Boot application usin
 ### CSV Generation Logic
 
 The CSV generation logic uses a `BufferedWriter` to write CSV data to the response. The data is retrieved from the database using the `UserService` and converted to CSV format.
-## Using StreamingResponseBody
 
-**StreamingResponseBody** is employed to efficiently stream large amounts of data, such as CSV content, directly to the HTTP response without buffering the entire content in memory. This is essential for handling potentially large datasets, ensuring optimal memory usage and responsiveness.
 
 ### Customization
 
