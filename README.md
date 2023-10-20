@@ -30,6 +30,9 @@ The CSV download functionality is configured in the Spring Boot application usin
 ### CSV Generation Logic
 
 The CSV generation logic uses a `BufferedWriter` to write CSV data to the response. The data is retrieved from the database using the `UserService` and converted to CSV format.
+## Using StreamingResponseBody
+
+**StreamingResponseBody** is employed to efficiently stream large amounts of data, such as CSV content, directly to the HTTP response without buffering the entire content in memory. This is essential for handling potentially large datasets, ensuring optimal memory usage and responsiveness.
 
 ### Customization
 
